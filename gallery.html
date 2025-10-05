@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery - Mumbai Hacks 2025</title>
+  <title>Gallery - Mumbai Hacks 2024</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -64,7 +64,7 @@
         margin-right: auto;
     }
 
-    /* UPDATED: Timeline Styles */
+    /* Timeline Styles */
     .timeline {
       position: relative;
       max-width: 1000px;
@@ -85,7 +85,6 @@
       transform: translateY(0);
     }
     
-    /* The circle on the path */
     .timeline-item::after {
       content: '';
       position: absolute;
@@ -109,14 +108,9 @@
       padding-left: 40px;
     }
 
-    .left::after {
-      right: -14px; /* (width/2 + border-width) */
-    }
-    .right::after {
-      left: -14px;
-    }
+    .left::after { right: -14px; }
+    .right::after { left: -14px; }
 
-    /* The winding path connector */
     .timeline-item::before {
       content: '';
       position: absolute;
@@ -127,25 +121,10 @@
       z-index: 1;
     }
 
-    .left::before {
-      right: 6px;
-      border-left: none;
-      border-bottom: none;
-      border-radius: 0 40px 0 0;
-      transform: translateY(-100%);
-    }
-
-    .right::before {
-      left: 6px;
-      border-right: none;
-      border-bottom: none;
-      border-radius: 40px 0 0 0;
-    }
+    .left::before { right: 6px; border-left: none; border-bottom: none; border-radius: 0 40px 0 0; transform: translateY(-100%); }
+    .right::before { left: 6px; border-right: none; border-bottom: none; border-radius: 40px 0 0 0; }
     
-    /* The first item doesn't have a path above it */
-    .timeline-item:first-child::before {
-      display: none;
-    }
+    .timeline-item:first-child::before { display: none; }
     
     .timeline-content {
       padding: 20px 30px;
@@ -153,59 +132,34 @@
       position: relative;
       border-radius: 16px;
       border: 1px solid rgba(162, 89, 255, 0.3);
-      text-align: left; /* Reset text align for content */
+      text-align: left;
     }
-    .timeline-content h2 {
-      margin-top: 0;
-      color: var(--primary-color);
+    /* NEW: Year Marker */
+    .timeline-year {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--primary-color);
+        color: var(--background-dark);
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: bold;
     }
-    .timeline-content p {
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-    .image-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin-top: 20px;
-    }
-    .image-gallery img {
-      width: 100%;
-      border-radius: 8px;
-      object-fit: cover;
-      aspect-ratio: 4/3;
-    }
+
+    .timeline-content h2 { margin-top: 0; color: var(--primary-color); }
+    .timeline-content p { color: var(--text-light); line-height: 1.6; }
+    .image-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 20px; }
+    .image-gallery img { width: 100%; border-radius: 8px; object-fit: cover; aspect-ratio: 4/3; }
 
     /* Responsive Timeline */
     @media screen and (max-width: 768px) {
-      .timeline-item {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 0;
-        text-align: left;
-      }
-      .left, .right {
-        left: 0;
-      }
-      .left::after, .right::after {
-        left: -14px;
-      }
-      .timeline-item::before { display: none; } /* Hide winding path on mobile for simplicity */
-      .timeline::after {
-        content: '';
-        position: absolute;
-        width: 4px;
-        background-color: var(--primary-color);
-        top: 0;
-        bottom: 0;
-        left: 0;
-        margin-left: -2px;
-        opacity: 0.3;
-      }
-       .timeline-item { padding-left: 40px; }
-       .left::after, .right::after { left: -12px; }
+      .timeline::after { content: ''; position: absolute; width: 4px; background-color: rgba(162, 89, 255, 0.3); top: 0; bottom: 0; left: 30px; margin-left: -2px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+      .timeline-item::before { display: none; }
+      .left, .right { left: 0%; padding-left: 0; padding-right: 0; text-align: left;}
+      .left::after, .right::after { left: 21px; }
     }
-
   </style>
 </head>
 <body>
@@ -213,14 +167,15 @@
   <a href="index.html" class="back-btn" title="Go Back">←</a>
 
   <header class="page-header">
-    <h1>A Journey Through the Hacks</h1>
-    <p>Relive the key moments from our past events, from the opening ceremony to the final winning pitch.</p>
+    <h1>Mumbai Hacks 2024: The Rewind</h1>
+    <p>Relive the key moments from our incredible 2024 event, from the opening ceremony to the final winning pitch.</p>
   </header>
 
   <main class="timeline">
     
     <div class="timeline-item right">
       <div class="timeline-content">
+        <span class="timeline-year">2024</span>
         <h2>Opening Ceremony</h2>
         <p>The event kicked off with an inspiring keynote, setting the stage for 48 hours of intense innovation and coding.</p>
         <div class="image-gallery">
@@ -232,6 +187,7 @@
 
     <div class="timeline-item left">
       <div class="timeline-content">
+        <span class="timeline-year">2024</span>
         <h2>Midnight Coding Sprint</h2>
         <p>Fueled by pizza and passion, teams worked through the night, turning ambitious ideas into functional prototypes.</p>
         <div class="image-gallery">
@@ -243,6 +199,7 @@
 
     <div class="timeline-item right">
       <div class="timeline-content">
+        <span class="timeline-year">2024</span>
         <h2>Mentorship Sessions</h2>
         <p>Industry experts provided invaluable guidance, helping teams refine their projects and overcome technical hurdles.</p>
         <div class="image-gallery">
@@ -254,6 +211,7 @@
 
     <div class="timeline-item left">
       <div class="timeline-content">
+        <span class="timeline-year">2024</span>
         <h2>Final Pitches</h2>
         <p>The top teams presented their groundbreaking projects to a panel of judges, showcasing their hard work and creativity.</p>
         <div class="image-gallery">
@@ -264,6 +222,7 @@
 
     <div class="timeline-item right">
       <div class="timeline-content">
+        <span class="timeline-year">2024</span>
         <h2>Award Ceremony</h2>
         <p>Celebrating the winners and all participants for their incredible effort, dedication, and the innovative solutions they built.</p>
         <div class="image-gallery">
